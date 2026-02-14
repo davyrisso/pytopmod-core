@@ -5,13 +5,31 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "pytopmod"
 version = "0.1.0"
+requires-python = ">=3.12"
+
 authors = [
   {name = "Davy Risso", email = "davy.risso@gmail.com"},
 ]
 readme = "README.md"
+
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = []
+
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.setuptools.package-data]
 pytopmod = ["py.typed"]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.19.1",
+    "ruff>=0.15.1",
+]
