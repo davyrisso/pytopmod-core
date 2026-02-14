@@ -1,6 +1,6 @@
 [build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "pytopmod"
@@ -12,21 +12,13 @@ authors = [
 ]
 readme = "README.md"
 
-
 [tool.ruff]
-line-length = 88
-target-version = "py312"
+line-length = 80
+indent-width = 2
 
-[tool.ruff.lint]
-select = ["E", "F", "I"]
-ignore = []
-
-
-[tool.setuptools.packages.find]
-where = ["src"]
-
-[tool.setuptools.package-data]
-pytopmod = ["py.typed"]
+[tool.mypy]
+check_untyped_defs = true
+disallow_untyped_defs = true
 
 [dependency-groups]
 dev = [
